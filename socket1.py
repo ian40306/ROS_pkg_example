@@ -18,10 +18,10 @@ with picamera.PiCamera() as camera:
 	image = np.empty((480 * 640 *3,), dtype=np.uint8)
 	camera.capture(image, format='bgr')
 	image = image.reshape((480, 640, 3))
-	cv2.imwrite("/home/titi/duckietown/123.jpg", image)
+	cv2.imwrite("/home/nctuai/123.jpg", image)
 	### Create socket with GPU computer ###
 	### Send image to GPU computer ###
-	imgFile = open("/home/titi/duckietown/123.jpg")
+	imgFile = open("/home/nctuai/123.jpg")
 	while True:
 		imgData = imgFile.readline(1024)
 		if not imgData:
@@ -41,6 +41,6 @@ with picamera.PiCamera() as camera:
 				print("*********  next  **********")
 				i=0
 			print(location)
-				i+=1
+			i+=1
 	print("socket deconnection...")
 	s.close()
